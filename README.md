@@ -1,16 +1,16 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | ALESSANDRO ALLEGRANZI      |
+| Date         | 03/21/2024                 |
+| Course       | Spring                     |
+| Assignment # | 4                          |
 
 # Assignment Overview
 Please add a paragraph or two overviewing the objectives of the assignment.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/1-8192/bu_cs_655_assignment_4_allegranzi
 
 # Implementation Description 
 
