@@ -23,8 +23,13 @@ public class Main {
    */
   public static void main(String[] args) {
     HTTPS_DataRetriever httpsDataRetriever = new HTTPS_DataRetriever();
+    USB_DataRetriever usbDataRetriever = new USB_DataRetriever();
     USB_HTTPS_Adapter adapter = new USB_HTTPS_Adapter(httpsDataRetriever);
 
+    // USB method.
+    usbDataRetriever.getCustomer_USB(3);
+
+    // Calling same interface method on adapter.
     adapter.getCustomer_USB(3);
   }
 
