@@ -9,7 +9,7 @@ public class USB_HTTPS_Adapter implements CustomerData_USB {
   }
   @Override
   public void printCustomer(int customerId) {
-    System.out.println(customerId);
+    customerDataHttps.printCustomer(customerId);
   };
 
   @Override

@@ -1,14 +1,19 @@
 package edu.bu.met.cs665;
 
-public class HTTPS_DataRetriever implements CustomerData_HTTPS {
+
+public class HTTPS_DataRetriever extends DataRetriever implements CustomerData_HTTPS {
 
 
   public void printCustomer(int customerId) {
-    System.out.println("The customer ID is: " + customerId);
+    System.out.println("Customer Data: \n" + customer.toString());
   };
 
   public void getCustomer_HTTPS(int customerId) {
-    System.out.println("Establishing secure connection over HTTPS... \n");
-    System.out.println("Data for Customer ID " + customerId + ": \n");
+    getCustomerFromDB(customerId);
   };
+
+  @Override
+  protected void establishConnection() {
+    System.out.println("Establishing secure connection over HTTPS... \n");
+  }
 }

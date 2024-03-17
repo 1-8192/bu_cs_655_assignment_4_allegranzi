@@ -1,14 +1,24 @@
 package edu.bu.met.cs665;
 
-public class USB_DataRetriever implements CustomerData_USB {
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
+public class USB_DataRetriever extends DataRetriever implements CustomerData_USB {
+
+  public USB_DataRetriever() {
+  }
 
   public void printCustomer(int customerId) {
-    System.out.println("The customer ID is: " + customerId);
-  };
+    System.out.println("Customer Data: \n" + customer.toString());
+  }
 
   public void getCustomer_USB(int customerId) {
-    System.out.println("Establishing secure connection over USB... \n");
-    System.out.println("Data for Customer ID " + customerId + ": \n");
-  };
+    getCustomerFromDB(customerId);
+  }
+
+  @Override
+  protected void establishConnection() {
+    System.out.println("Establishing a local connection vis USB... \n");
+  }
 }
