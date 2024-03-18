@@ -21,7 +21,11 @@ public class HTTPS_DataRetriever extends DataRetriever implements CustomerData_H
    * @param customerId the id.
    */
   public void printCustomer(int customerId) {
-    System.out.println("Customer Data: \n" + customer.toString());
+    if (customerId == customer.getId()) {
+      System.out.println("Customer Data: \n" + customer.toString());
+    } else {
+      System.out.println("Data for customer with ID " + customerId + " not loaded yet.");
+    }
   }
 
   /**

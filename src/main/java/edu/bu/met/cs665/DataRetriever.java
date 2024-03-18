@@ -67,4 +67,13 @@ public abstract class DataRetriever {
    */
   protected void establishConnection() {
   }
+
+  /**
+   * Setter for customer instance. Only used for unit testing.
+   *
+   * @param newCustomer the customer instance.
+   */
+  protected void setCustomer(Customer newCustomer) {
+    customer = newCustomer;
+  }
 }

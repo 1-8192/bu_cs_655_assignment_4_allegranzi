@@ -33,7 +33,7 @@ public class Main {
     // New HTTPS System.
     System.out.println("// Below are results for the new HTTPS implementation: \n");
     httpsDataRetriever.getCustomer_HTTPS(2);
-    httpsDataRetriever.printCustomer(2);
+    httpsDataRetriever.printCustomer(6);
     System.out.println("\n");
 
     // Loading a customer using the USB method through the adapter. Notice it prints out

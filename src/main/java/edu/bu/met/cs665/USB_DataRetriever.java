@@ -23,7 +23,11 @@ public class USB_DataRetriever extends DataRetriever implements CustomerData_USB
    * @param customerId the id.
    */
   public void printCustomer(int customerId) {
-    System.out.println("Customer Data: \n" + customer.toString());
+    if (customerId == customer.getId()) {
+      System.out.println("Customer Data: \n" + customer.toString());
+    } else {
+      System.out.println("Data for customer with ID " + customerId + " not loaded yet.");
+    }
   }
 
   /**
@@ -42,6 +46,6 @@ public class USB_DataRetriever extends DataRetriever implements CustomerData_USB
    */
   @Override
   protected void establishConnection() {
-    System.out.println("Establishing a local connection vis USB... \n");
+    System.out.println("Establishing a local connection via USB... \n");
   }
 }
