@@ -32,16 +32,25 @@ https://github.com/1-8192/bu_cs_655_assignment_4_allegranzi
 
 # Implementation Description 
 
+## Diagram:
+
+![UML Diagram](diagrams/assignment_4.drawio.pdf)
 
 For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
+
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
+
 - Describe how you have avoided duplicated code and why it is important.
+
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
+
+The main pattern I used to solve the assignment was the Adapter pattern. It seemed perfect given that the 
+scenario featured two different interfaces, one of which was from a legacy system.
 
 
 # Maven Commands
