@@ -9,20 +9,18 @@
 # Assignment Overview
 
 
-In response to the need for integrating an outdated legacy system with a modern customer data access system, an Adapter 
-design pattern was employed to bridge the gap between the two disparate interfaces. The legacy system, which relies on 
-accessing binary files via USB connection, and the new system, which accesses data securely through a REST API over
-HTTPS, posed a compatibility challenge due to their differing interfaces. By implementing the Adapter pattern, 
-a middleware layer was introduced to translate requests from the old system's API into a format understandable by the 
-new system, thereby facilitating seamless communication between the two systems.
+This assignment revolves around building an application for a company using two systems to access customer data. 
+They are a legacy system, which relies on accessing binary files via USB connection, and a new system, which accesses 
+data securely through a REST API over HTTPS connections. The legacy interface is CustomerData_USB, and the new interface
+is CustomerData_HTTPS. The application needs to support calls to the legacy USB interface without breaking, and redirect 
+those calls to the modern HTTPS system. In response to the need for integrating an outdated legacy system with a modern 
+customer data access system, an Adapter design pattern was employed to bridge the gap between the two separate interfaces.
 
-The Adapter implementation involves creating specific adapters for each interface, allowing the old system to interact 
-with the new system's interface. Mock objects were utilized as needed to simulate interactions with customer data. 
-Concrete adapter implementations were developed and rigorously tested to ensure the effectiveness and reliability of 
-the integration solution. Through unit tests, the Adapter pattern demonstrated its ability to enable the legacy system 
-to leverage the capabilities of the modern system for accessing customer data, without the need for extensive 
-modifications or the introduction of a graphical user interface. This approach not only addressed the immediate 
-integration challenge but also provided a flexible and scalable solution for future system enhancements or updates.
+Given that the concrete classes implementing the USB and HTTPS interfaces mostly loaded data similarly, aside
+from the connection type, a Template Method pattern was also implemented make the code more DRY. The application does 
+not feature a UI or graphical interface, but rigorous unit tests are included in the repository. 
+Additionally, the main class implements some tests that print out results to screen. A text file containing dummy customer
+data stands in for an actual database layer that the various DataRetriever classes can load from. 
 
 Screenshot:
 ![screen grab](images/screenshot.png)
