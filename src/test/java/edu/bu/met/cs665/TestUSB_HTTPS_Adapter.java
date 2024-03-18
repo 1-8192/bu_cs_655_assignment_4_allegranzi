@@ -27,7 +27,7 @@ public class TestUSB_HTTPS_Adapter {
   private final PrintStream standardOut = System.out;
   private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
-  private HTTPS_DataRetriever httpsDataRetriever;
+  private USB_DataRetriever usbDataRetriever;
 
   private USB_HTTPS_Adapter adapter;
 
@@ -35,9 +35,9 @@ public class TestUSB_HTTPS_Adapter {
   public void setUp() {
     System.setOut(new PrintStream(outputStreamCaptor));
     Customer customer = new Customer(1, "Jane", "Doe", 25);
-    httpsDataRetriever = new HTTPS_DataRetriever();
-    httpsDataRetriever.setCustomer(customer);
-    adapter = new USB_HTTPS_Adapter(httpsDataRetriever);
+    usbDataRetriever = new USB_DataRetriever();
+    usbDataRetriever.setCustomer(customer);
+    adapter = new USB_HTTPS_Adapter(usbDataRetriever);
   }
 
   /**
@@ -47,8 +47,8 @@ public class TestUSB_HTTPS_Adapter {
   @Test
   public void testGetCustomer_HTTPS() {
     outputStreamCaptor.reset();
-    adapter.getCustomer_USB(1);
-    Assert.assertEquals("Establishing secure connection over HTTPS..."
+    adapter.getCustomer_HTTPS(1);
+    Assert.assertEquals("Establishing a local connection via USB..."
           , outputStreamCaptor.toString()
                 .trim());
   }

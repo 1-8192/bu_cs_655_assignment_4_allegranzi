@@ -11,7 +11,7 @@ package edu.bu.met.cs665;
 
 /**
  * Concrete data Retriever class that implemented CustomerData_USB to load
- * customer data through a USB conneciton. It also extends the
+ * customer data through a USB connection. It also extends the
  * DataRetriever superclass and overrides the establishConnection method.
  * This is a legacy system and should not be used outside of examples.
  */

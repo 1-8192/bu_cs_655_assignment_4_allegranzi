@@ -22,7 +22,7 @@ public class Main {
     // One legacy USB loader, a new HTTPS loader, and an adapter.
     final HTTPS_DataRetriever httpsDataRetriever = new HTTPS_DataRetriever();
     final USB_DataRetriever usbDataRetriever = new USB_DataRetriever();
-    final USB_HTTPS_Adapter adapter = new USB_HTTPS_Adapter(httpsDataRetriever);
+    final USB_HTTPS_Adapter adapter = new USB_HTTPS_Adapter(usbDataRetriever);
 
     // Legacy USB system.
     System.out.println("// Below are results from the legacy implementation: \n");
@@ -37,10 +37,11 @@ public class Main {
     System.out.println("\n");
 
     // Loading a customer using the USB method through the adapter. Notice it prints out
-    // an HTTPS connection even though the USB method from the interface is called.
-    System.out.println("// Below are results for the adapter calling the USB method. "
-          + "Notice the connection type is HTTPS: ");
-    adapter.getCustomer_USB(1);
+    // a USB connection even though the HTTPS method from the new interface is called.
+    System.out.println("// Below are results for the adapter calling the "
+          + "USB method from the HTTPS interface. "
+          + "Notice the connection type is printed as USB: ");
+    adapter.getCustomer_HTTPS(1);
     adapter.printCustomer(1);
   }
 }

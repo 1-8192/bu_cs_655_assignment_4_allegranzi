@@ -4,30 +4,30 @@
  * Date: 03/21/2024
  * File Name: USB_HTTPS_Adapter.java
  * Description: Adapter class that allows legacy use of getCustomer_USB()
- * method through an HTTPS connection.
+ * method through an HTTPS connection interface.
  */
 
 package edu.bu.met.cs665;
 
 /**
  * Adapter class that allows legacy use of getCustomer_USB()
- * method through an HTTPS connection.
+ * method through an HTTPS connection interface.
  */
-public class USB_HTTPS_Adapter implements CustomerData_USB {
+public class USB_HTTPS_Adapter implements CustomerData_HTTPS {
 
   /**
-   * New HTTPS system to load customer data.
+   * Legacy USB system to load customer data.
    */
-  private final CustomerData_HTTPS customerDataHttps;
+  private final CustomerData_USB customerDataUsb;
 
   /**
    * Constructor for class takes in a concrete implementation
    * of the CustomerData_HTTPS interface.
    *
-   * @param customerDataHttps interface for HTTPS connections.
+   * @param customerDataUsb interface for legacy USB connections.
    */
-  USB_HTTPS_Adapter(CustomerData_HTTPS customerDataHttps) {
-    this.customerDataHttps = customerDataHttps;
+  USB_HTTPS_Adapter(CustomerData_USB customerDataUsb) {
+    this.customerDataUsb = customerDataUsb;
   }
 
   /**
@@ -37,18 +37,18 @@ public class USB_HTTPS_Adapter implements CustomerData_USB {
    */
   @Override
   public void printCustomer(int customerId) {
-    customerDataHttps.printCustomer(customerId);
+    customerDataUsb.printCustomer(customerId);
   }
 
   /**
    * Interface method to load customer data from the DB. We are calling
-   * the HTTPS data retriever from within the function, which is
-   * the core adapter pattern benefit.
+   * the USB data retriever from within the function, which exposes the new
+   * HTTPS interface and is the core adapter pattern benefit.
    *
    * @param customerId the id.
    */
   @Override
-  public void getCustomer_USB(int customerId) {
-    customerDataHttps.getCustomer_HTTPS(customerId);
+  public void getCustomer_HTTPS(int customerId) {
+    customerDataUsb.getCustomer_USB(customerId);
   }
 }
