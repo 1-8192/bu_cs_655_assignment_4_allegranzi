@@ -7,7 +7,25 @@
 | Assignment # | 4                          |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+
+
+In response to the need for integrating an outdated legacy system with a modern customer data access system, an Adapter 
+design pattern was employed to bridge the gap between the two disparate interfaces. The legacy system, which relies on 
+accessing binary files via USB connection, and the new system, which accesses data securely through a REST API over
+HTTPS, posed a compatibility challenge due to their differing interfaces. By implementing the Adapter pattern, 
+a middleware layer was introduced to translate requests from the old system's API into a format understandable by the 
+new system, thereby facilitating seamless communication between the two systems.
+
+The Adapter implementation involves creating specific adapters for each interface, allowing the old system to interact 
+with the new system's interface. Mock objects were utilized as needed to simulate interactions with customer data. 
+Concrete adapter implementations were developed and rigorously tested to ensure the effectiveness and reliability of 
+the integration solution. Through unit tests, the Adapter pattern demonstrated its ability to enable the legacy system 
+to leverage the capabilities of the modern system for accessing customer data, without the need for extensive 
+modifications or the introduction of a graphical user interface. This approach not only addressed the immediate 
+integration challenge but also provided a flexible and scalable solution for future system enhancements or updates.
+
+Screenshot:
+![screen grab](images/screenshot.png)
 
 # GitHub Repository Link:
 https://github.com/1-8192/bu_cs_655_assignment_4_allegranzi
@@ -106,6 +124,12 @@ mvn checkstyle:checkstyle
 
 The HTML page will be found at the following location:
 `target/site/checkstyle.html`
+
+## Running the Application
+
+### From an IDE
+
+Open the Main.java class file, and using your IDE UI run the class. In IntelliJ there is a "play" button.
 
 
 
