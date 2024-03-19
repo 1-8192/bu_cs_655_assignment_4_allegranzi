@@ -40,10 +40,20 @@ For each assignment, please answer the following:
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
 
+The implementation used is flexible due to the use of interfaces and class hierarchy. 
+
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
 
+The implementation uses clear interfaces and widely used design patterns to ensure readability and ease of understanding.
+
+
 - Describe how you have avoided duplicated code and why it is important.
+
+One example of avoiding duplicate code was my use of an abstract superclass DataRetriever and the template method pattern.
+The concrete HTTPS and USB interface classes shared basically the same methods, outside of how the connection is established,
+so I avoided writing out the same code in both classes by moving into the abstract class' template method, and only implementing
+the connection type-specific messages in the child classes. 
 
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
