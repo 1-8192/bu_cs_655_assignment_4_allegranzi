@@ -12,9 +12,10 @@
 This assignment revolves around building an application for a company using two systems to access customer data. 
 They are a legacy system, which relies on accessing binary files via USB connection, and a new system, which accesses 
 data securely through a REST API over HTTPS connections. The legacy interface is CustomerData_USB, and the new interface
-is CustomerData_HTTPS. The application needs to support calls to the legacy USB interface without breaking, and redirect 
-those calls to the modern HTTPS system. In response to the need for integrating an outdated legacy system with a modern 
-customer data access system, an Adapter design pattern was employed to bridge the gap between the two separate interfaces.
+is CustomerData_HTTPS. The application needs to support legacy data loading through USB via the new interface without 
+breaking. In response to the need for integrating an outdated legacy system with a modern customer data access system, 
+an Adapter design pattern was employed to bridge the gap between the two separate interfaces. Using the adapter, legacy
+connections vis USB can still be supported using the new HTTPS interface.
 
 Given that the concrete classes implementing the USB and HTTPS interfaces mostly loaded data similarly, aside
 from the connection type, a Template Method pattern was also implemented make the code more DRY. The application does 
