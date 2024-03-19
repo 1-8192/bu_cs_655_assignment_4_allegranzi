@@ -49,7 +49,16 @@ easy for others to read and maintain.
 chosen.
 
 The main pattern I used to solve the assignment was the Adapter pattern. It seemed perfect given that the 
-scenario featured two different interfaces, one of which was from a legacy system.
+scenario featured two different interfaces, one of which was from a legacy system. The USB_HTTPS_Adapter class is 
+the adapter. It implements the CustomerData_HTTPS interface, and instantiates a concrete implementation of CustomerData_USB
+interface as a class variable. When getCustomerData_HTTPS is called, the adapter uses the class variable's 
+getCustomer_USB method to load customer data through USB, thus preserving a legacy implementation through the modern HTTPS
+interface.
+
+I also used the template method pattern. In order to reduce duplicate code, I created a DataRetriever abstract superclass 
+that both concrete implementations of the CustomerData_USB and CustomerData_HTTPS interfaces extend. The abstract class defines
+a getCustomerFromDB template method that calls an establishConnection() method the child classes implement based on the 
+USB or HTTPS connection type.
 
 
 # Maven Commands
