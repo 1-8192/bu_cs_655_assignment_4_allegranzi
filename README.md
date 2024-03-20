@@ -43,7 +43,9 @@ be easily added or removed in the future.
 
 The implementation used is flexible due to the use of interfaces and class hierarchy. If any other connection types for
 accessing customer data were added, it would be easy to create another adapter for the HTTPS interface following the example
-adapter already created.
+adapter already created. Also, if the system ever evolved to where HTTPS connection were outdated, a new connection interface like
+CustomerDataHTTPS could be added, and adapters could be purposed for USB and HTTPS connections to continue supporting legacy
+retrieval methods. 
 
 Additionally, more data retrievers classes can easily be added by extending the super class and modifying the customer data
 loading template method. Removing objects should also be simple as most dependencies are based on implementing interfaces rather than
