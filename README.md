@@ -21,7 +21,8 @@ Given that the concrete classes implementing the USB and HTTPS interfaces mostly
 from the connection type, a Template Method pattern was also implemented make the code more DRY. The application does 
 not feature a UI or graphical interface, but rigorous unit tests are included in the repository. 
 Additionally, the main class implements some tests that print out results to screen. A text file containing dummy customer
-data stands in for an actual database layer that the various DataRetriever classes can load from. 
+data stands in for an actual database layer that the various DataRetriever classes can load from. The customer data is
+loaded into a Customer java class.
 
 Screenshot:
 ![screen grab](images/screenshot.png)
@@ -40,18 +41,25 @@ For each assignment, please answer the following:
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
 
-The implementation used is flexible due to the use of interfaces and class hierarchy. 
+The implementation used is flexible due to the use of interfaces and class hierarchy. If any other connection types for
+accessing customer data were added, it would be easy to create another adapter for the HTTPS interface following the example
+adapter already created.
+
+Additionally, more data retrievers classes can easily be added by extending the super class and modifying the customer data
+loading template method. Removing objects should also be simple as most dependencies are based on implementing interfaces rather than
+on concrete classes directly.
 
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
 
-The implementation uses clear interfaces and widely used design patterns to ensure readability and ease of understanding.
-
+The implementation uses clear interfaces and widely used design patterns to ensure readability and ease of understanding. The classes
+are descriptively named, and the adapter class sets up the adapter relationship simply and clearly. The DataRetriever abstract class
+defines the basic functionality and attributes for any concrete child classes that extend it.
 
 - Describe how you have avoided duplicated code and why it is important.
 
 One example of avoiding duplicate code was my use of an abstract superclass DataRetriever and the template method pattern.
-The concrete HTTPS and USB interface classes shared basically the same methods, outside of how the connection is established,
+The concrete HTTPS and USB interface classes shared basically the same methods, aside from how the connection is established,
 so I avoided writing out the same code in both classes by moving into the abstract class' template method, and only implementing
 the connection type-specific messages in the child classes. 
 
@@ -69,7 +77,6 @@ I also used the template method pattern. In order to reduce duplicate code, I cr
 that both concrete implementations of the CustomerData_USB and CustomerData_HTTPS interfaces extend. The abstract class defines
 a getCustomerFromDB template method that calls an establishConnection() method the child classes implement based on the 
 USB or HTTPS connection type.
-
 
 # Maven Commands
 
